@@ -176,25 +176,31 @@ nav ul li a svg{
     height: 350px;
     background-color: white;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
+    display: grid;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border: 2px solid #f7f7f7;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 .catalogue__product img{
-    width: 100%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
     overflow: hidden;
 }
 .catalogue__product span{
+    width: 100%;
     margin-top: 20px;
-    color: var(--letterColor);
+    color: #8a8a8a;
     font-size: 1.8rem;
-    opacity: .5;
+    text-align: center;
 }
 .catalogue__product button{
+    width: 100%;
     margin-top: 10px;
     background: #D90C0C;
     padding: 10px 20px;
@@ -207,4 +213,92 @@ nav ul li a svg{
 .catalogue__product button:hover{
     color: #D90C0C;
     background: transparent;
+}
+
+/* BANNER */
+.bannerDescuento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    width: 100%;
+}
+.bannerItem{
+    width: 90%;
+    height: 200px;
+    background: url(../assets/img/banner.webp) no-repeat center left/cover;
+}
+
+/* GALERIA */
+.galeriaProductos{
+    margin-top: 80px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.galeriaProductos__container{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "item1 item2"
+    "item1 item3";
+    gap: 1rem;
+}
+
+.container_items{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.container_items:hover{
+    transform: translate(0, -10px);
+}
+.container__item1{
+    grid-area: item1;
+}
+.container__item2{
+    grid-area: item2;
+}
+.container__item3{
+    grid-area: item3;
+}
+
+.container__item1 img{
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+.container__item2 img{
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.container__item3 img{
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.container_items span{
+    position: absolute;
+    bottom: 0;
+    background: #D90C0C;
+    color: #FFF;
+    font-weight: 800;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
 }
