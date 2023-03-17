@@ -108,12 +108,15 @@ nav ul li a svg{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(121, 0, 0, 0.3), rgba(121, 0, 0, 0.3)), url(../assets/img/bgMotoBoy.webp) no-repeat center center/cover;
-    background-blend-mode: luminosity;
+    background: url(../assets/img/bgMotoBoy.webp) no-repeat center center/cover;
 }
 .txtInicio{
     text-align: center;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .txtInicio h1{
     font-size: 3.5rem;
@@ -126,7 +129,14 @@ nav ul li a svg{
     color: #d1d1d1;
     margin-bottom: 50px;
 }
-.txtInicio a{
+.btnInicio{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btnInicio a{
     font-size: 1.2rem;
     background-color: #D90C0C;
     border: 2px solid #D90C0C;
@@ -135,7 +145,13 @@ nav ul li a svg{
     color: #ececec;
     font-weight: 600;
 }
-.txtInicio a:hover{
+.btnInicio a.comprarBtn{
+    margin-left: 20px;
+    background: #FFFFFF;
+    color: #D90C0C;
+    border: 2px solid #FFFFFF;
+}
+.btnInicio a:hover{
     background: transparent;
 }
 
@@ -331,5 +347,12 @@ nav ul li a svg{
 
     .galeriaProductos__container{
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 445px){
+    .btnInicio a.comprarBtn{
+        margin-left: 0;
+        margin-top: 20px;
     }
 }
