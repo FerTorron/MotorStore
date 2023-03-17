@@ -42,6 +42,7 @@ header{
     border-bottom: 2px solid #e4e4e4;
     position: fixed;
     background: #FFF;
+    z-index: 500;
     box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.062745098);
 }
 .navbar{
@@ -62,6 +63,7 @@ header{
 }
 nav{
     height: 100%;
+    position: relative;
 }
 nav ul{
     width: 100%;
@@ -91,6 +93,13 @@ nav ul li a{
 nav ul li a svg{
     width: 35px;
 }
+.menuBurger{
+    width: 35px;
+    display: none;
+}
+.move-nav{
+    top: 80px;
+}
 
 /* BG INICIO */
 .bgMoto{
@@ -100,6 +109,7 @@ nav ul li a svg{
     align-items: center;
     justify-content: center;
     background: linear-gradient(rgba(121, 0, 0, 0.3), rgba(121, 0, 0, 0.3)), url(../assets/img/bgMotoBoy.webp) no-repeat center center/cover;
+    background-blend-mode: luminosity;
 }
 .txtInicio{
     text-align: center;
@@ -168,7 +178,7 @@ nav ul li a svg{
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 90%;
+    width: 80%;
     height: auto;
 }
 .catalogue__product{
@@ -301,4 +311,25 @@ nav ul li a svg{
     align-items: center;
     justify-content: center;
     height: 30px;
+}
+
+
+/* MEDIAQUERIES */
+@media screen and (max-width: 900px) {
+    .menuBurger{
+        display: inline-block;
+        cursor: pointer;
+    }
+    nav{
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        top: -80px;
+        left: 0;
+        background: #FFFFFF;
+    }
+
+    .galeriaProductos__container{
+        width: 90%;
+    }
 }
