@@ -71,31 +71,36 @@ const consultarStock = () => {
 	}
 }
 
-
 const comprarStock = () => {
 	let respuesta = prompt(`👋 Hola ${usuario} ¿Qué Producto desea comprar? \n1) Casco \n2) Campera \n3) Guantes \n4) Medias \n5) Antiparras`).trim();
-	if (respuesta == 1){
-		stockCasco -= 1;
-		precioTotal += precioCasco * IVA;
-		alert(`🛒 Compraste un Casco, el nuevo stock de cascos es de ${stockCasco}.`);
-	} else if (respuesta == 2){
-		stockCampera -= 1;
-		precioTotal += precioCampera * IVA;
-		alert(`🛒 Compraste una Campera, el nuevo stock de camperas es de ${stockCampera}.`);
-	} else if (respuesta == 3){
-		stockGuantes -= 1;
-		precioTotal += precioGuantes * IVA;
-		alert(`🛒 Compraste un par de Guantes, el nuevo stock de guantes es de ${stockGuantes}.`);
-	} else if (respuesta == 4){
-		stockMedias -= 1;
-		precioTotal += precioMedias * IVA;
-		alert(`🛒 Compraste un par de Medias, el nuevo stock de medias es de ${stockMedias}.`);
-	} else if (respuesta == 5){
-		stockAntiparras -= 1;
-		precioTotal += precioAntiparras * IVA;
-		alert(`🛒 Compraste unas Antiparras, el nuevo stock de antiparras es de ${stockAntiparras}.`);
-	} else {
-		alert("⛔ No es una Respuesta Válida");
+	switch (respuesta){
+		case "1":
+			stockCasco -= 1;
+			precioTotal += precioCasco * IVA;
+			alert(`🛒 Compraste un Casco, el nuevo stock de cascos es de ${stockCasco}.`);
+			break;
+		case "2":
+			stockCampera -= 1;
+			precioTotal += precioCampera * IVA;
+			alert(`🛒 Compraste una Campera, el nuevo stock de camperas es de ${stockCampera}.`);
+			break;
+		case "3":
+			stockGuantes -= 1;
+			precioTotal += precioGuantes * IVA;
+			alert(`🛒 Compraste un par de Guantes, el nuevo stock de guantes es de ${stockGuantes}.`);
+			break;
+		case "4":
+			stockMedias -= 1;
+			precioTotal += precioMedias * IVA;
+			alert(`🛒 Compraste un par de Medias, el nuevo stock de medias es de ${stockMedias}.`);
+			break;
+		case "5":
+			stockAntiparras -= 1;
+			precioTotal += precioAntiparras * IVA;
+			alert(`🛒 Compraste unas Antiparras, el nuevo stock de antiparras es de ${stockAntiparras}.`);
+			break;
+		default:
+			alert("⛔ No es una Respuesta Válida");
 	}
 }
 
