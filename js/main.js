@@ -35,35 +35,35 @@ const consultarStock = () => {
 		alert(`El Stock de los Cascos es de ${stockCasco}.`);
 		saberPrecio = confirm("¿Quéres saber el precio por unidad?");
 		while (saberPrecio){
-			alert(`El precio por unidad de los cascos es de ${precioCasco}\nEl precio con IVA es de ${precioCasco * IVA}`);
+			alert(`El precio por unidad de los cascos es de $${precioCasco}\nEl precio con IVA es de $${(precioCasco * IVA).toFixed(2)}`);
 			break
 		}
 	} else if (respuesta == 2){
 		alert(`El Stock de las Camperas es de ${stockCampera}.`);
 		saberPrecio = confirm("¿Quéres saber el precio por unidad?");
 		while (saberPrecio){
-			alert(`El precio por unidad de las camperas es de ${precioCampera}\nEl precio con IVA es de ${precioCampera * IVA}`);
+			alert(`El precio por unidad de las camperas es de $${precioCampera}\nEl precio con IVA es de $${(precioCampera * IVA).toFixed(2)}`);
 			break
 		}
 	} else if (respuesta == 3){
 		alert(`El Stock de los Guantes es de ${stockGuantes}.`);
 		saberPrecio = confirm("¿Quéres saber el precio por unidad?");
 		while (saberPrecio){
-			alert(`El precio por unidad de los Guantes es de ${precioGuantes}\nEl precio con IVA es de ${precioGuantes * IVA}`);
+			alert(`El precio por unidad de los Guantes es de $${precioGuantes}\nEl precio con IVA es de $${(precioGuantes * IVA).toFixed(2)}`);
 			break
 		}
 	} else if (respuesta == 4){
 		alert(`El Stock de las Medias es de ${stockMedias}.`);
 		saberPrecio = confirm("¿Quéres saber el precio por unidad?");
 		while (saberPrecio){
-			alert(`El precio por unidad de las Medias es de ${precioMedias}\nEl precio con IVA es de ${precioMedias * IVA}`);
+			alert(`El precio por unidad de las Medias es de $${precioMedias}\nEl precio con IVA es de $${(precioMedias * IVA).toFixed(2)}`);
 			break
 		}
 	} else if (respuesta == 5){
 		alert(`El Stock de las Antiparras es de ${stockAntiparras}.`);
 		saberPrecio = confirm("¿Quéres saber el precio por unidad?");
 		while (saberPrecio){
-			alert(`El precio por unidad de las Antiparras es de ${precioAntiparras}\nEl precio con IVA es de ${precioAntiparras * IVA}`);
+			alert(`El precio por unidad de las Antiparras es de $${precioAntiparras}\nEl precio con IVA es de $${(precioAntiparras * IVA).toFixed(2)}`);
 			break
 		}
 	} else {
@@ -105,7 +105,7 @@ const comprarStock = () => {
 }
 
 const mostrarPrecioTotal = () => {
-	return alert(`El Precio Total es de ${precioTotal}`);
+	return alert(`El Precio Total es de $${precioTotal.toFixed(2)}`);
 }
 
 document.getElementById("consultarStock").addEventListener("click", consultarStock);
