@@ -89,9 +89,20 @@ nav ul li a{
     padding: 0 20px;
     border: 2px solid transparent;
     border-radius: 10px;
+    position: relative;
 }
 nav ul li a svg{
     width: 35px;
+}
+nav ul li a span{
+    background-color: #D90C0C;
+    color: #FFFFFF;
+    padding: 5px 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    font-size: 11px;
 }
 .menuBurger{
     width: 35px;
