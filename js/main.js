@@ -31,10 +31,34 @@ const nuevoProducto = () => {
 	productos.push(newProduct);
 	cargarProducto(productos);
 };
-document.querySelector(".comprarBtn").addEventListener("click", nuevoProducto);
+document.querySelector(".agregarProducto").addEventListener("click", nuevoProducto);
 
 
-// DOM PRODUCTO
+// PRODUCTOS EN LA TABLA
+const mostrarTabla = () => {
+	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
+}
+document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
+document.getElementById("closeTable").addEventListener("click", mostrarTabla);
+
+const listarProductos = () => { //no le demos bola por ahora
+    let contenidoTablaHTML = "";
+    const tabla = document.querySelector("tbody");
+        tabla.innerHTML = "";
+        for (producto of productos) {
+            contenidoTablaHTML += `<tr>
+                                       <td>${producto.id}</td>
+                                       <td>${producto.name}</td>
+                                       <td>$ ${producto.price.toLocaleString()}</td>
+									   <td>$ ${(producto.price * 1.21).toLocaleString()}</td>
+                                       <td>${producto.stock}</td>
+                                   <tr>`;
+        }
+        tabla.innerHTML = contenidoTablaHTML;
+}
+
+
+// TARJETAS PRODUCTOS
 const containerProducts = document.querySelector("div.newProducts__catalogue");
 
 const retornarProducto = (producto) => {
@@ -57,31 +81,26 @@ cargarProducto(productos);
 
 
 // COMPRAR PRODUCTO - SOLO ANDA ANTES DE cargarProducto()
-const comprar = () => {
+const agregarCarrito = () => {
 	carrito += 1;
 	carritoNumber.innerHTML = carrito;
 }
-document.querySelector(".btnAgregarCarrito").addEventListener("click", comprar);
+document.querySelector(".btnAgregarCarrito").addEventListener("click", agregarCarrito);
 
 
-// PRODUCTOS EN LA TABLA
-const mostrarTabla = () => {
-	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
+// BUSCAR PRODUCTO POR ID -- NO FUNCIONA SI PONE ALGO ERRONEO
+let productoEncontrado = [];
+const buscarID = () => {
+	productoEncontrado = [];
+	let IdBuscar = prompt("ID del Producto:");
+	productos.find((producto) => {
+		if (producto.id == IdBuscar){
+			productoEncontrado.push(producto);
+		}
+	});
+	
+	for (productoVar of productoEncontrado){
+		alert(`ID: ${productoVar.id}\nNOMBRE: ${productoVar.name}\nPRECIO: ${productoVar.price}\nSTOCK: ${productoVar.stock}`)
+	}
 }
-document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
-document.getElementById("closeTable").addEventListener("click", mostrarTabla);
-
-function listarProductos() { //no le demos bola por ahora
-    let contenidoTablaHTML = "";
-    const tabla = document.querySelector("tbody");
-        tabla.innerHTML = "";
-        for (producto of productos) {
-            contenidoTablaHTML += `<tr>
-                                       <td>${producto.id}</td>
-                                       <td>${producto.name}</td>
-                                       <td>$ ${producto.price.toLocaleString()}</td>
-                                       <td>${producto.stock}</td>
-                                   <tr>`;
-        }
-        tabla.innerHTML = contenidoTablaHTML;
-}
+document.querySelector(".buscarProducto").addEventListener("click", buscarID);

@@ -156,8 +156,8 @@ nav ul li a span{
     color: #ececec;
     font-weight: 600;
 }
-.btnInicio a.comprarBtn{
-    margin-left: 20px;
+.btnInicio a.agregarProducto{
+    margin: 0 20px 0 20px ;
     background: #FFFFFF;
     color: #D90C0C;
     border: 2px solid #FFFFFF;
