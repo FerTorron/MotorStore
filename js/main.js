@@ -4,10 +4,12 @@ const carritoNumber = document.querySelector("span.carritoNumber");
 	let carritoArray = [];
 	carritoNumber.innerHTML = carrito;
 
+
 // CREAR ID DE CADA PRODUCTO
 const crearID = () => {
 	return parseInt(Math.random() * 10000);
 };
+
 
 // arrayDeObjetos DE TODOS LOS PRODUCTOS
 const productos = [
@@ -17,6 +19,7 @@ const productos = [
 	{id: crearID(), name: 'Casco LS2 Brilloso', price: 89900, stock: 19, img: "assets/img/products/casco2.webp"},
 	{id: crearID(), name: 'Campera Davo', price: 66490, stock: 4, img: "assets/img/products/campera2.webp"}
 ];
+
 
 // AGREGAR NUEVO PRODUCTO AL ARRAY
 const nuevoProducto = () => {
@@ -30,13 +33,14 @@ const nuevoProducto = () => {
 };
 document.querySelector(".comprarBtn").addEventListener("click", nuevoProducto);
 
+
 // DOM PRODUCTO
 const containerProducts = document.querySelector("div.newProducts__catalogue");
 
 const retornarProducto = (producto) => {
 	return `<div class="catalogue__product">
 				<img src="${producto.img}">
-				<span>$${producto.price}</span>
+				<span>$ ${producto.price.toLocaleString()}</span>
 				<button id="btnAgregarCarrito" class="btnAgregarCarrito transition">Agregar al Carrito</button>
 			</div>`;
 };
@@ -46,9 +50,11 @@ const cargarProducto = (productosArray) => {
 	productosArray.forEach((producto) => {
 		containerProducts.innerHTML += retornarProducto(producto);
 	});
+	listarProductos();
 	
 };
 cargarProducto(productos);
+
 
 // COMPRAR PRODUCTO - SOLO ANDA ANTES DE cargarProducto()
 const comprar = () => {
@@ -56,3 +62,26 @@ const comprar = () => {
 	carritoNumber.innerHTML = carrito;
 }
 document.querySelector(".btnAgregarCarrito").addEventListener("click", comprar);
+
+
+// PRODUCTOS EN LA TABLA
+const mostrarTabla = () => {
+	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
+}
+document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
+document.getElementById("closeTable").addEventListener("click", mostrarTabla);
+
+function listarProductos() { //no le demos bola por ahora
+    let contenidoTablaHTML = "";
+    const tabla = document.querySelector("tbody");
+        tabla.innerHTML = "";
+        for (producto of productos) {
+            contenidoTablaHTML += `<tr>
+                                       <td>${producto.id}</td>
+                                       <td>${producto.name}</td>
+                                       <td>$ ${producto.price.toLocaleString()}</td>
+                                       <td>${producto.stock}</td>
+                                   <tr>`;
+        }
+        tabla.innerHTML = contenidoTablaHTML;
+}
