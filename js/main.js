@@ -1,7 +1,16 @@
+// ESTE ES MI PROYECTO PARA LA SEGUNDA PRE ENTREGA - AGREGUE NUEVAS FUNCIONES
+// APARECE UN CONTADOR EN EL CARRITO QUE TE DICE LA CANTIDAD DE PRODUCTOS QUE AGREGAS PERO SOLO FUNCIONA CON
+// EL PRIMER ARTICULO Y CUANDO AGREGAS DESDE EL COMANDO agregarCarritoArray()
+// EL ID DE LOS PRODUCTOS SE CREAN SOLOS
+// HAY UN ARRAY DE CADA PRODUCTO EN EL CUAL PODES AGREGAR NUEVOS PRODUCTOS DESDE EL BOTON "NUEVO PRODUCTO"
+// DESDE EL BOTON "MOSTRAR LISTADO" PODES VER UNA LISTA DE TODOS LOS PRODUCTOS E INFORMACIÓN
+// CADA PRODUCTO SE CREA AUTOMATICAMENTE EN UNA TARJETA AL FINAL DE LA PAGINA CON SU PRECIO Y UN BOTON PARA AGREGAR AL CARRITO
+// SE PUEDE BUSCAR UN PRODUCTO POR SU ID EL CUAL LO PODES VER DESDE LA LISTA. NO ES MUY UTIL PERO ME SIRVIO PARA PRACTICAR
+// SI PRESIONAS EL BOTON DEL CARRITO TE APARECE UNA LISTA CON CADA PRODUCTO QUE AGREGAS PERO SOLO FUNCIONA SI LOS AGREGAS DESDE EL COMANDO agregarCarritoArray()
+
 // MOSTRAR CANTIDAD EN EL CARRITO
 const carritoNumber = document.querySelector("span.carritoNumber");
 	let carrito = 0;
-	let carritoArray = [];
 	carritoNumber.innerHTML = carrito;
 
 
@@ -35,13 +44,7 @@ document.querySelector(".agregarProducto").addEventListener("click", nuevoProduc
 
 
 // PRODUCTOS EN LA TABLA
-const mostrarTabla = () => {
-	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
-}
-document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
-document.getElementById("closeTable").addEventListener("click", mostrarTabla);
-
-const listarProductos = () => { //no le demos bola por ahora
+const listarProductos = () => {
     let contenidoTablaHTML = "";
     const tabla = document.querySelector("tbody");
         tabla.innerHTML = "";
@@ -56,6 +59,13 @@ const listarProductos = () => { //no le demos bola por ahora
         }
         tabla.innerHTML = contenidoTablaHTML;
 }
+
+const mostrarTabla = () => {
+	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
+	listarProductos();
+}
+document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
+document.getElementById("closeTable").addEventListener("click", mostrarTabla);
 
 
 // TARJETAS PRODUCTOS
@@ -73,9 +83,7 @@ const cargarProducto = (productosArray) => {
 	containerProducts.innerHTML = "";
 	productosArray.forEach((producto) => {
 		containerProducts.innerHTML += retornarProducto(producto);
-	});
-	listarProductos();
-	
+	});	
 };
 cargarProducto(productos);
 
@@ -104,3 +112,39 @@ const buscarID = () => {
 	}
 }
 document.querySelector(".buscarProducto").addEventListener("click", buscarID);
+
+
+// CARRITO
+let carritoArray = [];
+
+const agregarCarritoArray = () => {
+	let IdBuscar = prompt("ID del Producto a Comprar:");
+	productos.find((producto) => {
+		if (producto.id == IdBuscar){
+			carritoArray.push(producto);
+		}
+	});
+	carrito += 1;
+	carritoNumber.innerHTML = carrito;
+}
+
+const listarProductosCarrito = () => {
+    let tablaCarrito = "";
+    const tabla = document.querySelector("tbody.tCarrito");
+        tabla.innerHTML = "";
+        for (prodCarro of carritoArray) {
+            tablaCarrito += `<tr>
+								<td>${prodCarro.id}</td>
+								<td>${prodCarro.name}</td>
+								<td>$ ${(prodCarro.price * 1.21).toLocaleString()}</td>
+							<tr>`;
+        }
+        tabla.innerHTML = tablaCarrito;
+}
+
+const mostrarTablaCarrito = () => {
+	document.getElementById("tablaCarrito").classList.toggle("mostrarTabla");
+	listarProductosCarrito();
+}
+document.getElementById("carrito").addEventListener("click", mostrarTablaCarrito);
+document.getElementById("closeTableCart").addEventListener("click", mostrarTablaCarrito);

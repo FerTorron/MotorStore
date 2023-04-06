@@ -14,6 +14,11 @@
     --buttonColor: #D90C0C;
 }
 
+html{
+    scroll-behavior: smooth;
+
+}
+
 body{
     background: #F2F2F2;
 }
@@ -147,7 +152,7 @@ nav ul li a span{
     justify-content: center;
     flex-wrap: wrap;
 }
-.btnInicio a{
+.verProductos{
     font-size: 1.2rem;
     background-color: #D90C0C;
     border: 2px solid #D90C0C;
@@ -156,13 +161,7 @@ nav ul li a span{
     color: #ececec;
     font-weight: 600;
 }
-.btnInicio a.agregarProducto{
-    margin: 0 20px 0 20px ;
-    background: #FFFFFF;
-    color: #D90C0C;
-    border: 2px solid #FFFFFF;
-}
-.btnInicio a:hover{
+.verProductos:hover{
     background: transparent;
 }
 
@@ -266,6 +265,44 @@ nav ul li a span{
     background: url(../assets/img/banner.webp) no-repeat center left/cover;
 }
 
+/* MENU ADMIN */
+.sectionAdmin{
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.sectionAdmin{
+    font-size: 2rem;
+    color: var(--titleColor);
+}
+.menuAdmin{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.menuAdmin a{
+    font-size: 1.2rem; 
+    background-color: #D90C0C;
+    border: 2px solid #D90C0C;
+    border-radius: 15px;
+    padding: 10px 20px;
+    color: #ececec;
+    font-weight: 600;
+    margin-left: 20px;
+}
+.menuAdmin a:hover{
+    background: transparent;
+    color: #D90C0C;
+}
+#mostrarProductos{
+    margin-left: 0;
+}
+
 /* GALERIA */
 .galeriaProductos{
     margin-top: 80px;
@@ -296,6 +333,7 @@ nav ul li a span{
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .container_items:hover{
     transform: translate(0, -10px);
