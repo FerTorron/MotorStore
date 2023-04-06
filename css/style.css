@@ -441,6 +441,14 @@ nav ul li a span{
         width: 90%;
     }
 
+    .menuAdmin{
+        flex-direction: column;
+    }
+    .menuAdmin a{
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
     .bannerDescuento{
         display: none;
     }

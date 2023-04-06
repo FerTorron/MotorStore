@@ -36,9 +36,14 @@ const nuevoProducto = () => {
 	let name = prompt('Nombre del Producto:');
 	let price = parseFloat(prompt('Precio del Producto:'));
 	let stock = parseInt(prompt('Stock del Producto:'));
-	let newProduct = {id: id, name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
-	productos.push(newProduct);
-	cargarProducto(productos);
+
+	if ((name.length > 3) && (typeof price == 'number') && (typeof stock == 'number')){
+		let newProduct = {id: id, name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
+		productos.push(newProduct);
+		cargarProducto(productos);
+	} else {
+		alert("⛔ Disculpa, Los Datos no son Válidos");
+	}
 };
 document.querySelector(".agregarProducto").addEventListener("click", nuevoProducto);
 
@@ -96,19 +101,20 @@ const agregarCarrito = () => {
 document.querySelector(".btnAgregarCarrito").addEventListener("click", agregarCarrito);
 
 
-// BUSCAR PRODUCTO POR ID -- NO FUNCIONA SI PONE ALGO ERRONEO
+// BUSCAR PRODUCTO POR ID
 let productoEncontrado = [];
 const buscarID = () => {
 	productoEncontrado = [];
 	let IdBuscar = prompt("ID del Producto:");
-	productos.find((producto) => {
-		if (producto.id == IdBuscar){
-			productoEncontrado.push(producto);
+	let result = productos.find((producto) => producto.id == IdBuscar);
+
+	if (result !== undefined){
+		productoEncontrado.push(producto);
+		for (productoVar of productoEncontrado){
+			alert(`ID: ${productoVar.id}\nNOMBRE: ${productoVar.name}\nPRECIO: ${productoVar.price}\nSTOCK: ${productoVar.stock}`)
 		}
-	});
-	
-	for (productoVar of productoEncontrado){
-		alert(`ID: ${productoVar.id}\nNOMBRE: ${productoVar.name}\nPRECIO: ${productoVar.price}\nSTOCK: ${productoVar.stock}`)
+	} else {
+		alert("⛔ Disculpa, No he encontrado el Producto que buscabas");
 	}
 }
 document.querySelector(".buscarProducto").addEventListener("click", buscarID);
@@ -119,13 +125,14 @@ let carritoArray = [];
 
 const agregarCarritoArray = () => {
 	let IdBuscar = prompt("ID del Producto a Comprar:");
-	productos.find((producto) => {
-		if (producto.id == IdBuscar){
-			carritoArray.push(producto);
-		}
-	});
-	carrito += 1;
-	carritoNumber.innerHTML = carrito;
+	let result = productos.find((producto) => producto.id == IdBuscar);
+	if (result !== undefined){
+		carritoArray.push(result);
+		carrito += 1;
+		carritoNumber.innerHTML = carrito;
+	} else {
+		alert("⛔ Disculpa, No he encontrado el Producto que buscabas");
+	}
 }
 document.querySelector(".agregarCarrito").addEventListener("click", agregarCarritoArray);
 
