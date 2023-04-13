@@ -197,6 +197,7 @@ nav ul li a span{
     color: var(--titleColor);
     font-size: 3rem;
     margin-bottom: 50px;
+    text-align: center;
 }
 .newProducts__catalogue{
     display: flex;
@@ -249,6 +250,20 @@ nav ul li a span{
 .catalogue__product button:hover{
     color: #D90C0C;
     background: transparent;
+}
+
+.searchProduct{
+    width: 50%;
+    margin-bottom: 50px;
+}
+.searchProduct input{
+    width: 100%;
+    padding: 15px;
+    height: 40px;
+    font-size: .9rem;
+    border-radius: 20px;
+    border: 2px solid #e4e4e4;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 /* BANNER */
@@ -422,6 +437,50 @@ nav ul li a span{
     top: 1px;
 }
 
+/* FOOTER */
+footer{
+    margin-top: 100px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../assets/img/bgFooter.webp) no-repeat center center/cover;
+}
+.footerContainer{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+.infoMotor{
+    color: #FFF;
+    font-size: 1.1rem;
+}
+.infoMotor img{
+    margin-bottom: 30px;
+    width: 250px;
+}
+.infoMotor p{
+    padding-right: 100px;
+}
+.linksContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.linksContainer svg{
+    width: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.mapMotor iframe{
+    border-radius: 20px;
+    width: 500px;
+    height: 350px;
+}
+
 /* MEDIAQUERIES */
 @media screen and (max-width: 900px) {
     .menuBurger{
@@ -451,6 +510,33 @@ nav ul li a span{
 
     .bannerDescuento{
         display: none;
+    }
+
+    .searchProduct{
+        width: 80%;
+    }
+
+    .footerContainer{
+        flex-direction: column;
+    }
+    .infoMotor{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .infoMotor p{
+        padding-right: 0;
+        text-align: center;
+    }
+    .mapMotor{
+        margin-top: 50px;
+    }
+    .mapMotor iframe{
+        border-radius: 20px;
+        width: 100%;
+        height: 350px;
     }
 }
 

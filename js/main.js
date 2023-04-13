@@ -1,24 +1,10 @@
 // MOSTRAR CANTIDAD EN EL CARRITO
+let carritoArray = recuperarCarrito() || [];
 const carritoNumber = document.querySelector("span.carritoNumber");
-	let carrito = 0;
-	carritoNumber.innerHTML = carrito;
-
-
-// CREAR ID DE CADA PRODUCTO
-const crearID = () => {
-	return parseInt(Math.random() * 10000);
-};
-
-
-// arrayDeObjetos DE TODOS LOS PRODUCTOS
-const productos = [
-	{id: crearID(), name: 'Casco LS2 Mate', price: 59390, stock: 15, img: "assets/img/products/casco1.webp"},
-	{id: crearID(), name: 'Campera STAV', price: 103899, stock: 5, img: "assets/img/products/campera1.webp"},
-	{id: crearID(), name: 'Guantes GAV', price: 14604, stock: 24, img: "assets/img/products/guantes.webp"},
-	{id: crearID(), name: 'Casco LS2 Brilloso', price: 89900, stock: 19, img: "assets/img/products/casco2.webp"},
-	{id: crearID(), name: 'Campera Davo', price: 66490, stock: 4, img: "assets/img/products/campera2.webp"}
-];
-
+const actualizarCarrito = () => {
+	carritoNumber.textContent = carritoArray.length;
+}
+actualizarCarrito();
 
 // AGREGAR NUEVO PRODUCTO AL ARRAY
 const nuevoProducto = () => {
@@ -37,32 +23,6 @@ const nuevoProducto = () => {
 };
 document.querySelector(".agregarProducto").addEventListener("click", nuevoProducto);
 
-
-// PRODUCTOS EN LA TABLA
-const listarProductos = () => {
-    let contenidoTablaHTML = "";
-    const tabla = document.querySelector("tbody");
-        tabla.innerHTML = "";
-        for (producto of productos) {
-            contenidoTablaHTML += `<tr>
-                                       <td>${producto.id}</td>
-                                       <td>${producto.name}</td>
-                                       <td>$ ${producto.price.toLocaleString()}</td>
-									   <td>$ ${(producto.price * 1.21).toLocaleString()}</td>
-                                       <td>${producto.stock}</td>
-                                   <tr>`;
-        }
-        tabla.innerHTML = contenidoTablaHTML;
-}
-
-const mostrarTabla = () => {
-	document.getElementById("tablaProductos").classList.toggle("mostrarTabla");
-	listarProductos();
-}
-document.getElementById("mostrarProductos").addEventListener("click", mostrarTabla);
-document.getElementById("closeTable").addEventListener("click", mostrarTabla);
-
-
 // TARJETAS PRODUCTOS
 const containerProducts = document.querySelector("div.newProducts__catalogue");
 
@@ -70,62 +30,34 @@ const retornarProducto = (producto) => {
 	return `<div class="catalogue__product">
 				<img src="${producto.img}">
 				<span>$ ${producto.price.toLocaleString()}</span>
-				<button id="btnAgregarCarrito" class="btnAgregarCarrito transition">Agregar al Carrito</button>
+				<button id="${producto.id}" class="btnAgregarCarrito transition">Agregar al Carrito</button>
 			</div>`;
 };
 
+// COMPRAR PRODUCTO
+const agregarCarrito = () => {
+	const botonesCart = document.querySelectorAll(".btnAgregarCarrito")
+		if (botonesCart !== null){
+			for (const boton of botonesCart){
+				boton.addEventListener("click", (e) => {
+					let productoAgregado = productos.find((producto) => producto.id === parseInt(e.target.id))
+					carritoArray.push(productoAgregado);
+					actualizarCarrito();
+					guardarCarrito();
+				})
+			}
+		}
+}
+
 const cargarProducto = (productosArray) => {
 	containerProducts.innerHTML = "";
-	productosArray.forEach((producto) => {
-		containerProducts.innerHTML += retornarProducto(producto);
-	});	
+	productosArray.forEach((producto) => { containerProducts.innerHTML += retornarProducto(producto); });	
+	agregarCarrito();
 };
 cargarProducto(productos);
 
 
-// COMPRAR PRODUCTO
-const agregarCarrito = () => {
-	carrito += 1;
-	carritoNumber.innerHTML = carrito;
-}
-document.querySelector(".btnAgregarCarrito").addEventListener("click", agregarCarrito);
-
-
-// BUSCAR PRODUCTO POR ID
-let productoEncontrado = [];
-const buscarID = () => {
-	productoEncontrado = [];
-	let IdBuscar = prompt("ID del Producto:");
-	let result = productos.find((producto) => producto.id == IdBuscar);
-
-	if (result !== undefined){
-		productoEncontrado.push(producto);
-		for (productoVar of productoEncontrado){
-			alert(`ID: ${productoVar.id}\nNOMBRE: ${productoVar.name}\nPRECIO: ${productoVar.price}\nSTOCK: ${productoVar.stock}`)
-		}
-	} else {
-		alert("⛔ Disculpa, No he encontrado el Producto que buscabas");
-	}
-}
-document.querySelector(".buscarProducto").addEventListener("click", buscarID);
-
-
-// CARRITO
-let carritoArray = [];
-
-const agregarCarritoArray = () => {
-	let IdBuscar = prompt("ID del Producto a Comprar:");
-	let result = productos.find((producto) => producto.id == IdBuscar);
-	if (result !== undefined){
-		carritoArray.push(result);
-		carrito += 1;
-		carritoNumber.innerHTML = carrito;
-	} else {
-		alert("⛔ Disculpa, No he encontrado el Producto que buscabas");
-	}
-}
-document.querySelector(".agregarCarrito").addEventListener("click", agregarCarritoArray);
-
+// TABLA CARRITO
 const listarProductosCarrito = () => {
     let tablaCarrito = "";
     const tabla = document.querySelector("tbody.tCarrito");
@@ -146,3 +78,11 @@ const mostrarTablaCarrito = () => {
 }
 document.getElementById("carrito").addEventListener("click", mostrarTablaCarrito);
 document.getElementById("closeTableCart").addEventListener("click", mostrarTablaCarrito);
+
+// BUSCAR PRODUCTO POR NOMBRE
+const inputSearch = document.querySelector("#inputSearch");
+const filtrarProductos = () => {
+	let productoBuscar = productos.filter((producto) => producto.name.toLowerCase().includes(inputSearch.value.toLowerCase().trim()));
+	productoBuscar !== [] && cargarProducto(productoBuscar)
+}
+inputSearch.addEventListener("search", filtrarProductos)
