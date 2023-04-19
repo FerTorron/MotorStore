@@ -34,7 +34,20 @@ const recuperarCarrito = () => {
 }
 
 const vaciarCarrito = () => {
-	localStorage.clear();
-	window.location.reload()
+
+	Swal.fire({
+		title: '¿Estás seguro de eliminar todos los productos?',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sí, elimínalos!'
+	  }).then((result) => {
+		if (result.isConfirmed) {
+		  	localStorage.clear();
+			window.location.reload()
+			actualizarTotal();
+		}
+	  })        
 }
-document.querySelector(".vaciarCarrito").addEventListener("click", vaciarCarrito)
+document.querySelector("button.vaciarCarrito").addEventListener("click", vaciarCarrito)

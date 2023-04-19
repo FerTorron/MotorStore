@@ -13,8 +13,7 @@ const nuevoProducto = () => {
 	let price = parseFloat(prompt('Precio del Producto:'));
 	let stock = parseInt(prompt('Stock del Producto:'));
 
-	if ((name.length > 3) && (typeof price == 'number') && (typeof stock == 'number')){
-		let newProduct = {id: id, name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
+	if ((name.length > 3) && (typeof price === 'number') && (typeof stock === 'number')){		let newProduct = {id: id, name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
 		productos.push(newProduct);
 		cargarProducto(productos);
 	} else {
@@ -25,10 +24,9 @@ document.querySelector(".agregarProducto").addEventListener("click", nuevoProduc
 
 // TARJETAS PRODUCTOS
 const containerProducts = document.querySelector("div.newProducts__catalogue");
-
 const retornarProducto = (producto) => {
 	return `<div class="catalogue__product">
-				<img src="${producto.img}">
+				<img src="${producto.img}" alt="${producto.name}">
 				<span>$ ${producto.price.toLocaleString()}</span>
 				<button id="${producto.id}" class="btnAgregarCarrito transition">Agregar al Carrito</button>
 			</div>`;
@@ -44,11 +42,26 @@ const agregarCarrito = () => {
 					carritoArray.push(productoAgregado);
 					actualizarCarrito();
 					guardarCarrito();
+
+					Toastify({
+						text: "Producto Agregado",
+						duration: 3000,
+						close: true,
+						gravity: "top", // `top` or `bottom`
+						position: "right", // `left`, `center` or `right`
+						stopOnFocus: true, // Prevents dismissing of toast on hover
+						style: {
+						background: "#D90C0C",
+						},
+						onClick: function(){} // Callback after click
+						}).showToast();
 				})
 			}
 		}
 }
 
+
+// CARGAR CADA PRODUCTO
 const cargarProducto = (productosArray) => {
 	containerProducts.innerHTML = "";
 	productosArray.forEach((producto) => { containerProducts.innerHTML += retornarProducto(producto); });	
@@ -56,28 +69,6 @@ const cargarProducto = (productosArray) => {
 };
 cargarProducto(productos);
 
-
-// TABLA CARRITO
-const listarProductosCarrito = () => {
-    let tablaCarrito = "";
-    const tabla = document.querySelector("tbody.tCarrito");
-        tabla.innerHTML = "";
-        for (prodCarro of carritoArray) {
-            tablaCarrito += `<tr>
-								<td>${prodCarro.id}</td>
-								<td>${prodCarro.name}</td>
-								<td>$ ${(prodCarro.price * 1.21).toLocaleString()}</td>
-							<tr>`;
-        }
-        tabla.innerHTML = tablaCarrito;
-}
-
-const mostrarTablaCarrito = () => {
-	document.getElementById("tablaCarrito").classList.toggle("mostrarTabla");
-	listarProductosCarrito();
-}
-document.getElementById("carrito").addEventListener("click", mostrarTablaCarrito);
-document.getElementById("closeTableCart").addEventListener("click", mostrarTablaCarrito);
 
 // BUSCAR PRODUCTO POR NOMBRE
 const inputSearch = document.querySelector("#inputSearch");

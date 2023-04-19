@@ -46,6 +46,7 @@ header{
     align-items: center;
     border-bottom: 2px solid #e4e4e4;
     position: fixed;
+    top: 0;
     background: #FFF;
     z-index: 500;
     box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.062745098);
@@ -435,6 +436,122 @@ nav ul li a span{
 }
 .mostrarTabla{
     top: 1px;
+}
+
+/* CARRITO LISTA */
+.carritoSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.carritoContainer{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #FFF;
+    border-radius: 20px;
+    padding: 20px;
+}
+.carritoContainer h2{
+    color: var(--titleColor);
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+}
+.carritoProductos{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .8rem;
+}
+.productoLista{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F2F2F2;
+    padding: .5rem;
+    border-radius: 20px;
+    gap: 3rem;
+    text-align: left;
+}
+.productoLista img{
+    width: 4rem;
+    border-radius: 10px;
+}
+.productoLista svg{
+    cursor: pointer;
+    width: 2rem;
+}
+.tituloProduct{
+    min-width: 200px;
+}
+.infoProduct small{
+    font-size: .75rem;
+}
+.infoProduct h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.infoProduct h4, h5, h6{
+    font-size: 1rem;
+}
+.botonesProductos{
+    width: 90%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vaciarCarrito button{
+    border-radius: 1rem;
+    background-color: #D90C0C;
+    color: #FFF;
+    padding: 1rem;
+    border: 2px solid #D90C0C;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 300ms;
+}
+.vaciarCarrito button:hover{
+    background-color: transparent;
+    color: #D90C0C;
+}
+.totalCarrito{
+    display: flex;
+}
+.precioTotal{
+    display: flex;
+    background: #F2F2F2;
+    padding: 1rem;
+    color: var(--letterColor);
+    gap: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    font-size: .9rem;
+    font-weight: 800;
+}
+.totalCarrito button{
+    background: #D90C0C;
+    border: 2px solid #D90C0C;
+    padding: 1rem;
+    color: #FFF;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    font-size: .9rem;
+    font-weight: 700;
+    transition: all 300ms;
+}
+.totalCarrito button:hover{
+    background-color: transparent;
+    color: #D90C0C;
 }
 
 /* FOOTER */
