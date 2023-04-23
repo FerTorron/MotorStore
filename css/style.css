@@ -281,44 +281,6 @@ nav ul li a span{
     background: url(../assets/img/banner.webp) no-repeat center left/cover;
 }
 
-/* MENU ADMIN */
-.sectionAdmin{
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.sectionAdmin{
-    font-size: 2rem;
-    color: var(--titleColor);
-}
-.menuAdmin{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
-.menuAdmin a{
-    font-size: 1.2rem; 
-    background-color: #D90C0C;
-    border: 2px solid #D90C0C;
-    border-radius: 15px;
-    padding: 10px 20px;
-    color: #ececec;
-    font-weight: 600;
-    margin-left: 20px;
-}
-.menuAdmin a:hover{
-    background: transparent;
-    color: #D90C0C;
-}
-#mostrarProductos{
-    margin-left: 0;
-}
-
 /* GALERIA */
 .galeriaProductos{
     margin-top: 80px;
@@ -455,6 +417,7 @@ nav ul li a span{
     background: #FFF;
     border-radius: 20px;
     padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .carritoContainer h2{
     color: var(--titleColor);
@@ -479,6 +442,8 @@ nav ul li a span{
     border-radius: 20px;
     gap: 3rem;
     text-align: left;
+    border: 2px solid #e3e3e3;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .productoLista img{
     width: 4rem;
@@ -535,7 +500,9 @@ nav ul li a span{
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     font-size: .9rem;
+    align-items: center;
     font-weight: 800;
+    border: 2px solid #e3e3e3;
 }
 .totalCarrito button{
     background: #D90C0C;
@@ -551,6 +518,77 @@ nav ul li a span{
 }
 .totalCarrito button:hover{
     background-color: transparent;
+    color: #D90C0C;
+}
+
+/* MENU ADMIN */
+.adminMenu{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2c2c2cc9;
+    position: fixed;
+    top: -600px;
+}
+.move-adminMenu{
+    top: 0;
+}
+.newProductContainer{
+    width: 60%;
+    padding: 50px;
+    border-radius: 20px;
+    background: #FFF;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.newProductContainer h2{
+    font-size: 1.6rem;
+}
+.formProduct{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.formProduct form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.formProduct form input{
+    width: 70%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #bebebe;
+}
+.formProduct .buttonsContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.btnAdmin{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #D90C0C;
+    background: #D90C0C;
+    font-size: .9rem;
+    color: #FFF;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 300ms;
+}
+.btnAdmin:hover{
+    background: #FFF;
     color: #D90C0C;
 }
 
@@ -654,6 +692,30 @@ footer{
         border-radius: 20px;
         width: 100%;
         height: 350px;
+    }
+
+    .newProductContainer{
+        width: 95%;
+    }
+    .formProduct{
+        width: 95%;
+    }
+    .formProduct form input{
+        width: 100%;
+    }
+
+    .btnAdmin{
+        font-size: .7rem;
+    }
+
+    .productoLista{
+        gap: 2rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    .botonesProductos{
+        gap: 2rem;
+        flex-direction: column;
     }
 }
 

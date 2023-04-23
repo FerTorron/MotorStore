@@ -18,7 +18,6 @@ const listarProductosCarrito = (producto) => {
 // ELIMINAR PRODUCTO
 const eliminarProductoCarrito = () => {
 	const botonesEliminar = document.querySelectorAll(".eliminarProducto");
-	debugger
 	if (botonesEliminar !== null){
 		for (const boton of botonesEliminar){
 			boton.addEventListener("click", (e) => {
@@ -52,7 +51,7 @@ const cargarProductosCarrito = (carritoArrayProductos) => {
 	carritoArrayProductos.forEach((producto) => { productosCarrito.innerHTML += listarProductosCarrito(producto); });
 	eliminarProductoCarrito();
 }
-cargarProductosCarrito(carritoArray)
+cargarProductosCarrito(carritoArray);
 
 // TOTAL PRODUCTO CARRITO
 const totalCarrito = document.querySelector("p#total");
@@ -78,10 +77,30 @@ function comprarCarrito() {
         confirmButtonText: 'Comprar'
         }).then((result) => {
         if (result.isConfirmed) {
-            localStorage.clear();
+			localStorage.removeItem("carrito");
 			window.location.reload()
 			actualizarTotal();
         }
         })
 }
 document.querySelector("button.comprarCarrito").addEventListener("click", comprarCarrito);
+
+// VACIAR CARRITO
+function vaciarCarrito() {
+
+	Swal.fire({
+		title: '¿Estás seguro de eliminar todos los productos?',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sí, elimínalos!'
+	  }).then((result) => {
+		if (result.isConfirmed) {
+			localStorage.removeItem("carrito");
+			window.location.reload();
+			actualizarTotal();
+		}
+	  })        
+}
+document.querySelector(".vaciarCarrito").addEventListener("click", vaciarCarrito)

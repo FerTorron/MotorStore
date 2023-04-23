@@ -3,8 +3,20 @@ const crearID = () => {
 	return parseInt(Math.random() * 10000);
 };
 
+// STORAGE DE PRODUCTOS
+const guardarProductosStorage = () => {
+	productos.length > 0 ? localStorage.setItem("productos", JSON.stringify(productos)) : 0;
+}
+const recuperarProductosStorage = () => {
+    return JSON.parse(localStorage.getItem("productos"));
+}
+const restablecerProductos = () => {
+	localStorage.removeItem("productos");
+	window.location.reload();
+}
+document.querySelector(".btnRestablecer").addEventListener("click", restablecerProductos);
 // arrayDeObjetos DE TODOS LOS PRODUCTOS
-const productos = [
+const productos = recuperarProductosStorage() || [
 	{id: crearID(), name: 'Casco LS2 Mate', price: 59390, stock: 15, img: "assets/img/products/casco1.webp"},
 	{id: crearID(), name: 'Campera STAV', price: 103899, stock: 5, img: "assets/img/products/campera1.webp"},
 	{id: crearID(), name: 'Guantes GAV', price: 14604, stock: 24, img: "assets/img/products/guantes.webp"},
@@ -23,31 +35,10 @@ const productos = [
 ];
 
 // GUARDAR CARRITO EN STORAGE
-const guardarCarrito = () => {
-    if (carritoArray.length > 0){
-        localStorage.setItem("carrito", JSON.stringify(carritoArray));
-    }
+function guardarCarrito(){
+	carritoArray.length > 0 ? localStorage.setItem("carrito", JSON.stringify(carritoArray)) : 0;
 }
 
-const recuperarCarrito = () => {
+function recuperarCarrito(){
     return JSON.parse(localStorage.getItem("carrito"));
 }
-
-const vaciarCarrito = () => {
-
-	Swal.fire({
-		title: '¿Estás seguro de eliminar todos los productos?',
-		icon: 'warning',
-		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
-		confirmButtonText: 'Sí, elimínalos!'
-	  }).then((result) => {
-		if (result.isConfirmed) {
-		  	localStorage.clear();
-			window.location.reload()
-			actualizarTotal();
-		}
-	  })        
-}
-document.querySelector("button.vaciarCarrito").addEventListener("click", vaciarCarrito)

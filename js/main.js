@@ -6,22 +6,6 @@ const actualizarCarrito = () => {
 }
 actualizarCarrito();
 
-// AGREGAR NUEVO PRODUCTO AL ARRAY
-const nuevoProducto = () => {
-	let id = crearID();
-	let name = prompt('Nombre del Producto:');
-	let price = parseFloat(prompt('Precio del Producto:'));
-	let stock = parseInt(prompt('Stock del Producto:'));
-
-	if ((name.length > 3) && (typeof price === 'number') && (typeof stock === 'number')){		let newProduct = {id: id, name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
-		productos.push(newProduct);
-		cargarProducto(productos);
-	} else {
-		alert("⛔ Disculpa, Los Datos no son Válidos");
-	}
-};
-document.querySelector(".agregarProducto").addEventListener("click", nuevoProducto);
-
 // TARJETAS PRODUCTOS
 const containerProducts = document.querySelector("div.newProducts__catalogue");
 const retornarProducto = (producto) => {
@@ -31,6 +15,40 @@ const retornarProducto = (producto) => {
 				<button id="${producto.id}" class="btnAgregarCarrito transition">Agregar al Carrito</button>
 			</div>`;
 };
+
+// AGREGAR NUEVO PRODUCTO
+const inputName = document.querySelector(".inputName");
+const inputPrice = document.querySelector(".inputPrice");
+const inputStock = document.querySelector(".inputStock");
+const inputButton = document.querySelector(".inputButton");
+
+const agregarProducto = () => {
+	let name = inputName.value;
+	let price = parseFloat(inputPrice.value);
+	let stock = parseFloat(inputStock.value);
+	if ((name.length > 3) && (price > 0) && (stock > 0)){
+		let newProduct = {id: crearID(), name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
+		productos.push(newProduct);
+		cargarProducto(productos);
+		guardarProductosStorage();
+
+		Swal.fire(
+			'Excelente!',
+			'Producto Agregado con Éxito',
+			'success'
+		  )
+
+	} else {
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Los Datos no son Válidos',
+			footer: 'El nombre debe tener mínimo 3 letras'
+		  })
+	}
+}
+inputButton.addEventListener("click", agregarProducto);
+
 
 // COMPRAR PRODUCTO
 const agregarCarrito = () => {
@@ -48,7 +66,7 @@ const agregarCarrito = () => {
 						duration: 3000,
 						close: true,
 						gravity: "top", // `top` or `bottom`
-						position: "right", // `left`, `center` or `right`
+						position: "center", // `left`, `center` or `right`
 						stopOnFocus: true, // Prevents dismissing of toast on hover
 						style: {
 						background: "#D90C0C",
@@ -77,3 +95,8 @@ const filtrarProductos = () => {
 	productoBuscar !== [] && cargarProducto(productoBuscar)
 }
 inputSearch.addEventListener("search", filtrarProductos)
+
+// TOOLTIP
+tippy('#myButton', {
+	content: 'motorstore@gmail.com',
+  });

@@ -5,7 +5,12 @@ function mostrar_menu(){
 }
 
 window.addEventListener("resize", function(){
-	if (window.innerWidth > 700) {
-		document.getElementById("nav").classList.remove('move-nav');
-	}
+	window.innerWidth > 700 ? document.getElementById("nav").classList.remove('move-nav') : 0;
 })
+
+// MENU ADMIN
+document.getElementById("adminMenuBtn").addEventListener("click", mostrarMenuAdmin);
+document.getElementById("btnClose").addEventListener("click", mostrarMenuAdmin);
+function mostrarMenuAdmin(){
+	document.getElementById("adminMenu").classList.toggle('move-adminMenu');
+}
