@@ -115,7 +115,7 @@ nav ul li a span{
     display: none;
 }
 .move-nav{
-    top: 80px;
+    height: 80px;
 }
 
 /* BG INICIO */
@@ -644,9 +644,10 @@ footer{
     }
     nav{
         width: 100%;
-        height: 80px;
+        height: 0;
         position: fixed;
-        top: -80px;
+        overflow: hidden;
+        top: 80px;
         left: 0;
         background: #FFFFFF;
     }
