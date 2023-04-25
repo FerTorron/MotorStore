@@ -191,6 +191,46 @@ nav ul li a span{
     margin-top: 100px;
     width: 100%;
     display: flex;
+    justify-content: center;
+}
+/* LEFT */
+.leftProducts{
+    margin-top: 200px;
+    width: 20%;
+    height: 300px;
+    position: sticky;
+    background: #D90C0C;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    top: 100px;
+}
+.leftProducts ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+}
+.leftProducts ul li button{
+    color: #FFF;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.leftProducts ul li:hover{
+    opacity: .7;
+    cursor: pointer;
+}
+
+/* RIGHT */
+.rightProducts{
+    width: 80%;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -584,7 +624,7 @@ nav ul li a span{
     flex-direction: column;
     gap: 1rem;
 }
-.formProduct form input{
+.formProduct form input, select{
     width: 70%;
     padding: 10px;
     border-radius: 20px;
@@ -739,12 +779,27 @@ footer{
         gap: 2rem;
         flex-direction: column;
     }
+
+    .leftProducts{
+        height: 300px;
+
+    }
+    .leftProducts ul li button{
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 445px){
     .btnInicio a.comprarBtn{
         margin-left: 0;
         margin-top: 20px;
+    }
+
+    .leftProducts{
+        display: none;
+    }
+    .rightProducts{
+        width: 90%;
     }
 }
 

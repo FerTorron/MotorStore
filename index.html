@@ -80,16 +80,26 @@
 
         <!-- NEW PRODUCTS -->
         <section id="productos" class="newProducts">
-            <div class="newProducts__title">
-                <h2>Nuestros Productos</h2>
-            </div>
-            <div class="searchProduct">
-                <input type="search" name="" id="inputSearch" placeholder="¿Qué Producto Estabas Buscado?">
-            </div>
-            <div class="newProducts__catalogue">
-                <div class="errorCarrito">
-                    <h3>⛔ Carrito Vacío</h3>
-                    <p>Debes Agregar productos al Carrito en Nuestra <a href="../index.html">Home</a></p>
+            <aside class="leftProducts">
+                <ul>
+                    <li id="filtrarTodos" class="filtro active"><button>Todos los Productos</button></li>
+                    <li id="casco" class="filtro"><button>Cascos</button></li>
+                    <li id="guantes" class="filtro"><button>Guantes</button></li>
+                    <li id="campera" class="filtro"><button>Camperas</button></li>
+                    <li id="botas" class="filtro"><button>Botas</a></li>
+                    <li id="accesorios" class="filtro"><button>Accesorios</button></li>
+                </ul>
+            </aside>
+
+            <div class="rightProducts">
+                <div class="newProducts__title">
+                    <h2 class="titlePri">Nuestros Productos</h2>
+                </div>
+                <div class="searchProduct">
+                    <input type="search" name="" id="inputSearch" placeholder="¿Qué Producto Estabas Buscado?">
+                </div>
+                <div class="newProducts__catalogue">
+                    <!-- ACÁ VAN LOS PRODUCTOS -->
                 </div>
             </div>
         </section>
@@ -103,6 +113,14 @@
                             <input class="inputName" type="text" placeholder="Nombre del Producto">
                             <input class="inputPrice" type="number" placeholder="Precio">
                             <input class="inputStock" type="number" placeholder="Stock">
+                            <select class="inputCategoria" name="categoria" id="categoriaId">
+                                <option value="">Elija la Categoría del Producto</option>
+                                <option value="cascos">Cascos</option>
+                                <option value="guantes">Guantes</option>
+                                <option value="camperas">Camperas</option>
+                                <option value="botas">Botas</option>
+                                <option value="accesorios">Accesorios</option>
+                            </select>
                             <div class="buttonsContainer">
                                 <a class="btnAdmin inputButton">Agregar Producto</a>
                                 <a id="btnClose" class="btnAdmin btnClose">Cerrar Menú</a>

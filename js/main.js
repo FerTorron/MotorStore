@@ -21,13 +21,15 @@ const inputName = document.querySelector(".inputName");
 const inputPrice = document.querySelector(".inputPrice");
 const inputStock = document.querySelector(".inputStock");
 const inputButton = document.querySelector(".inputButton");
+const inputCategoria = document.querySelector(".inputCategoria");
 
 const agregarProducto = () => {
 	let name = inputName.value;
 	let price = parseFloat(inputPrice.value);
 	let stock = parseFloat(inputStock.value);
+	let categoria = inputCategoria.value;
 	if ((name.length > 3) && (price > 0) && (stock > 0)){
-		let newProduct = {id: crearID(), name: name, price: price, stock: stock, img: "assets/logo/logo.webp"};
+		let newProduct = {id: crearID(), name: name, price: price, stock: stock, categoria: categoria, img: "assets/logo/logo.webp"};
 		productos.push(newProduct);
 		cargarProducto(productos);
 		guardarProductosStorage();
@@ -102,6 +104,22 @@ const filtrarProductos = () => {
 	productoBuscar !== [] && cargarProducto(productoBuscar)
 }
 inputSearch.addEventListener("search", filtrarProductos)
+
+// BUSCAR PRODUCTO POR CATEGORIA
+const botonesCategorias = document.querySelectorAll(".filtro");
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+    if (e.currentTarget.id != "filtrarTodos") {
+        let productosBoton = productos.filter((producto) => producto.categoria === e.currentTarget.id);
+        cargarProducto(productosBoton);
+    }
+    else {
+        cargarProducto(productos);
+    }
+    })
+});
 
 // TOOLTIP
 tippy('#myButton', {
