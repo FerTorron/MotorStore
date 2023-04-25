@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-  <a href="#" target="_blank" rel="noreferrer"><img src="https://user-images.githubusercontent.com/100718699/215283254-b62c8fdf-f53f-49a4-8b06-b116db32878c.png" alt="my banner"></a>
+  <a href="#" target="_blank" rel="noreferrer"><img src="https://user-images.githubusercontent.com/100718699/234391029-a7a876f9-63c5-4f48-9890-e2e0241e427b.png" alt="my banner"></a>
 </p>
 
 <br>
@@ -19,6 +19,4 @@
 <br><br>
 
 ## ⛳ Librerías Utilizadas
-SweetAlert
-Toastify
-TippyJs
+<ul><li>SweetAlert</li><li>Toastify</li><li>TippyJs</li>
