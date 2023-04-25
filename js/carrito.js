@@ -33,7 +33,7 @@ const eliminarProductoCarrito = () => {
 					duration: 3000,
 					close: true,
 					gravity: "top", // `top` or `bottom`
-					position: "right", // `left`, `center` or `right`
+					position: "center", // `left`, `center` or `right`
 					stopOnFocus: true, // Prevents dismissing of toast on hover
 					style: {
 					background: "#D90C0C",
@@ -51,7 +51,10 @@ const cargarProductosCarrito = (carritoArrayProductos) => {
 	carritoArrayProductos.forEach((producto) => { productosCarrito.innerHTML += listarProductosCarrito(producto); });
 	eliminarProductoCarrito();
 }
-cargarProductosCarrito(carritoArray);
+setTimeout(() => {
+	cargarProductosCarrito(carritoArray);
+}, 2000);
+
 
 // TOTAL PRODUCTO CARRITO
 const totalCarrito = document.querySelector("p#total");
@@ -62,7 +65,10 @@ const actualizarTotal = () => {
 	}
 	totalCarrito.textContent = `$${total.toLocaleString()}`
 }
-actualizarTotal();
+setTimeout(() => {
+	actualizarTotal();
+}, 2000);
+
 
 // COMPRAR CARRITO
 function comprarCarrito() {
