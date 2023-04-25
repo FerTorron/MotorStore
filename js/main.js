@@ -81,9 +81,16 @@ const agregarCarrito = () => {
 
 // CARGAR CADA PRODUCTO
 const cargarProducto = (productosArray) => {
-	containerProducts.innerHTML = "";
-	productosArray.forEach((producto) => { containerProducts.innerHTML += retornarProducto(producto); });	
-	agregarCarrito();
+	if (productosArray.length > 0){
+		containerProducts.innerHTML = "";
+		productosArray.forEach((producto) => { containerProducts.innerHTML += retornarProducto(producto); });	
+		agregarCarrito();
+	} else {
+		containerProducts.innerHTML = `<div class="errorCarrito">
+											<h3>⛔ Sin Stock</h3>
+											<p>Disculpa, nos hemos quedado sin Stock</p>
+										</div>`;
+	}
 };
 cargarProducto(productos);
 
