@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Casco LS2 Mate",
+        "price": 59390,
+        "stock": 15,
+        "categoria": "casco",
+        "img": "assets/img/products/casco1.webp"
+    },
+    {
+        "id": 2,
+        "name": "Campera STAV",
+        "price": 103899,
+        "stock": 5,
+        "categoria": "campera",
+        "img": "assets/img/products/campera1.webp"
+    },
+    {
+        "id": 3,
+        "name": "Guantes GAV",
+        "price": 14604,
+        "stock": 24,
+        "categoria": "guantes",
+        "img": "assets/img/products/guantes.webp"
+    },
+    {
+        "id": 4,
+        "name": "Casco LS2 Brilloso",
+        "price": 89900,
+        "stock": 19,
+        "categoria": "casco",
+        "img": "assets/img/products/casco2.webp"
+    },
+    {
+        "id": 5,
+        "name": "Campera Davo",
+        "price": 66490,
+        "stock": 4,
+        "categoria": "campera",
+        "img": "assets/img/products/campera2.webp"
+    },
+    {
+        "id": 6,
+        "name": "Antiparra Roja",
+        "price": 4598,
+        "stock": 7,
+        "categoria": "accesorios",
+        "img": "assets/img/products/antiparra.webp"
+    },
+    {
+        "id": 7,
+        "name": "Antiparra Blanca",
+        "price": 5200,
+        "stock": 2,
+        "categoria": "accesorios",
+        "img": "assets/img/products/antiparra2.webp"
+    },
+    {
+        "id": 8,
+        "name": "Botas Negras",
+        "price": 24856,
+        "stock": 11,
+        "categoria": "botas",
+        "img": "assets/img/products/botas.webp"
+    },
+    {
+        "id": 9,
+        "name": "Botas Blancas",
+        "price": 28567,
+        "stock": 4,
+        "categoria": "botas",
+        "img": "assets/img/products/botas2.webp"
+    },
+    {
+        "id": 10,
+        "name": "Campera Clasica",
+        "price": 68490,
+        "stock": 1,
+        "categoria": "campera",
+        "img": "assets/img/products/campera3.webp"
+    },
+    {
+        "id": 11,
+        "name": "Casco Multi",
+        "price": 65000,
+        "stock": 4,
+        "categoria": "casco",
+        "img": "assets/img/products/casco3.webp"
+    },
+    {
+        "id": 12,
+        "name": "Campera Roja",
+        "price": 68000,
+        "stock": 1,
+        "categoria": "campera",
+        "img": "assets/img/products/campera4.webp"
+    },
+    {
+        "id": 13,
+        "name": "Mochila",
+        "price": 42000,
+        "stock": 24,
+        "categoria": "accesorios",
+        "img": "assets/img/products/mochila.webp"
+    },
+    {
+        "id": 14,
+        "name": "Medias Termicas",
+        "price": 4100,
+        "stock": 4,
+        "categoria": "accesorios",
+        "img": "assets/img/products/mediatermica.webp"
+    },
+    {
+        "id": 15,
+        "name": "Guantes Marrones",
+        "price": 12540,
+        "stock": 7,
+        "categoria": "guantes",
+        "img": "assets/img/products/guantes2.webp"
+    }
+]

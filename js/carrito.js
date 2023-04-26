@@ -40,6 +40,10 @@ const eliminarProductoCarrito = () => {
 					},
 					onClick: function(){} // Callback after click
 					}).showToast();
+				
+				if (carritoArray.length === 1){
+					localStorage.removeItem("carrito");
+				}
 			})
 		}
 	}
