@@ -62,10 +62,9 @@ const cargarProductosCarrito = (carritoArrayProductos) => {
 									</div>`
 	}
 }
-// setTimeout(() => {
-// 	cargarProductosCarrito(carritoArray);
-// }, 2000);
-cargarProductosCarrito(carritoArray);
+setTimeout(() => {
+	cargarProductosCarrito(carritoArray);
+}, 2000);
 
 
 
