@@ -581,6 +581,168 @@ nav ul li a span{
     font-size: 1.2rem;
 }
 
+/* CHECKOUT */
+.checkoutSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.checkoutContainer{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+}
+.checkoutContainer h2{
+    color: var(--titleColor);
+    font-size: 2.3rem;
+}
+.checkoutContainer p{
+    color: var(--letterColor);
+    font-size: 1.2rem;
+}
+.compraContainer{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 30%;
+    gap: 2em;
+    justify-content: center;
+}
+.formCompra{
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 20px;
+}
+.formCompra h3{
+    font-size: 1.6rem;
+    color: var(--titleColor);
+}
+.formCompra hr{
+    width: 100%;
+    height: 5px;
+    background-color: #D90C0C;
+    border-radius: 20px;
+    border: none;
+}
+.formCompra form{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.formCompra form a{
+    padding: 10px 20px;
+    background-color: #D90C0C;
+    border: 2px solid #D90C0C;
+    border-radius: 20px;
+    color: #FFF;
+    font-size: 1rem;
+    transition: all 300ms;
+    font-weight: 500;
+    cursor: pointer;
+}
+.formCompra form a:hover{
+    background-color: #FFF;
+    color: #D90C0C;
+}
+.formCompra form input{
+    height: 45px;
+    padding-left: 10px;
+    font-size: 1em;
+    border: 2px solid #bebebe;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+}
+.inputEmail{
+    width: 100%;
+}
+.nameInputs, .numInputs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nameInputs input, .numInputs input{
+    width: 46%;
+}
+.paymentInput{
+    margin: 20px 0 20px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.paymentInput label{
+    font-size: 1.2rem;
+    color: var(--titleColor);
+    font-weight: 500;
+}
+.paymentInput div{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.infoCompra{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.infoCompra h3{
+    font-size: 1.4rem;
+    color: var(--titleColor);
+}
+.infoCompra hr{
+    width: 100%;
+    height: 5px;
+    background-color: #D90C0C;
+    border-radius: 20px;
+    border: none;
+}
+.resumenCompra{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    overflow: scroll;
+    gap: 1rem;
+}
+.productoResumen{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #e4e4e4;
+}
+.productoResumen img{
+    width: 70px;
+    height: 80px;
+}
+.infoCompra h5{
+    margin-top: 40px;
+    color: var(--titleColor);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 /* MENU ADMIN */
 .adminMenu{
     width: 100%;
@@ -786,6 +948,26 @@ footer{
     }
     .leftProducts ul li button{
         font-size: 1rem;
+    }
+
+    .checkoutContainer{
+        text-align: center;
+        width: 100%;
+    }
+    .infoCompra hr{
+        margin-bottom: 10px;
+    }
+    .compraContainer{
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+        
+    }
+    .paymentInput div{
+        flex-direction: column;
+        gap: 0;
+    }
+    .infoCompra{
+        height: auto;
     }
 }
 

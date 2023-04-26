@@ -69,7 +69,7 @@ setTimeout(() => {
 
 
 // TOTAL PRODUCTO CARRITO
-const totalCarrito = document.querySelector("p#total");
+const totalCarrito = document.querySelector("#total");
 const actualizarTotal = () => {
 	let total = 0;
 	for (producto of carritoArray){
@@ -84,22 +84,7 @@ setTimeout(() => {
 
 // COMPRAR CARRITO
 function comprarCarrito() {
-
-    Swal.fire({
-        title: 'Realizar compra',
-        text: `Vas a comprar ${carritoArray.length} productos.`,
-        icon: 'success',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Comprar'
-        }).then((result) => {
-        if (result.isConfirmed) {
-			localStorage.removeItem("carrito");
-			window.location.reload()
-			actualizarTotal();
-        }
-        })
+	window.location.href = "checkout.html";
 }
 document.querySelector("button.comprarCarrito").addEventListener("click", comprarCarrito);
 
