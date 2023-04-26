@@ -969,6 +969,20 @@ footer{
     .infoCompra{
         height: auto;
     }
+
+    .errorCarrito{
+        gap: 1rem;
+        width: 90%;
+        height: 150px;
+        color: #FFF;
+        text-align: center;
+    }
+    .errorCarrito h3{
+        font-size: 1.4rem;
+    }
+    .errorCarrito p{
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 445px){

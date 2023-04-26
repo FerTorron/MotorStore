@@ -19,7 +19,7 @@ const listarProductosCarrito = (producto) => {
 const eliminarProductoCarrito = () => {
 	const botonesEliminar = document.querySelectorAll(".eliminarProducto");
 	if (botonesEliminar !== null){
-		for (const boton of botonesEliminar){
+		botonesEliminar.forEach (boton => {
 			boton.addEventListener("click", (e) => {
 				let productoAeliminar = carritoArray.findIndex((producto) => producto.id === parseInt(e.target.id))
 				carritoArray.splice(productoAeliminar, 1);
@@ -45,7 +45,7 @@ const eliminarProductoCarrito = () => {
 					localStorage.removeItem("carrito");
 				}
 			})
-		}
+		})
 	}
 }
 
@@ -55,6 +55,7 @@ const cargarProductosCarrito = (carritoArrayProductos) => {
 		productosCarrito.innerHTML = "";
 		carritoArrayProductos.forEach((producto) => { productosCarrito.innerHTML += listarProductosCarrito(producto); });
 		eliminarProductoCarrito();
+		recuperarCarrito();
 	} else {
 		productosCarrito.innerHTML = `<div class="errorCarrito">
 										<h3>⛔ Carrito Vacío</h3>
@@ -84,7 +85,15 @@ setTimeout(() => {
 
 // COMPRAR CARRITO
 function comprarCarrito() {
-	window.location.href = "checkout.html";
+	if (carritoArray.length > 0){
+		window.location.href = "checkout.html";
+	} else {
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'El Carrito está Vacío',
+		})
+	}
 }
 document.querySelector("button.comprarCarrito").addEventListener("click", comprarCarrito);
 
