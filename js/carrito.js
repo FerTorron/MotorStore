@@ -20,29 +20,52 @@ const eliminarProductoCarrito = () => {
 	const botonesEliminar = document.querySelectorAll(".eliminarProducto");
 		botonesEliminar.forEach(boton => {
 			boton.addEventListener("click", (e) => {
-				let productoAeliminar = carritoArray.findIndex((producto) => producto.id === e.target.id);
-				console.log(productoAeliminar)
-				carritoArray.splice(productoAeliminar, 1);
-				guardarCarrito();
-				actualizarTotal();
-				actualizarCarrito();
-				cargarProductosCarrito(carritoArray);
+				if (carritoArray.length === 1){
+					localStorage.removeItem("carrito");
+					window.location.reload();
+				} else {
+					let productoAeliminar = carritoArray.findIndex((producto) => producto.id === parseFloat(e.target.id));
+					carritoArray.splice(productoAeliminar, 1)
+					console.log(productoAeliminar)
+					guardarCarrito();
+					actualizarTotal();
+					actualizarCarrito();
+					cargarProductosCarrito(carritoArray);
 
-				Toastify({
-					text: "Producto Eliminado",
-					duration: 3000,
-					close: true,
-					gravity: "top", // `top` or `bottom`
-					position: "center", // `left`, `center` or `right`
-					stopOnFocus: true, // Prevents dismissing of toast on hover
-					style: {
-					background: "#D90C0C",
-					},
-					onClick: function(){} // Callback after click
-					}).showToast();
+					Toastify({
+						text: "Producto Eliminado",
+						duration: 3000,
+						close: true,
+						gravity: "top", // `top` or `bottom`
+						position: "center", // `left`, `center` or `right`
+						stopOnFocus: true, // Prevents dismissing of toast on hover
+						style: {
+						background: "#D90C0C",
+						},
+						onClick: function(){} // Callback after click
+						}).showToast();
+				}
 			})
 		})
 }
+
+// function actualizarBotonesEliminar() {
+//     botonesEliminar = document.querySelectorAll(".eliminarProducto");
+
+//     botonesEliminar.forEach(boton => {
+//         boton.addEventListener("click", eliminarDelCarrito);
+//     });
+// }
+
+// function eliminarDelCarrito(e) {
+//     const idBoton = e.currentTarget.id;
+//     const index = carritoArray.findIndex(producto => producto.id === idBoton);
+// 	console.log(index)
+//     carritoArray.splice(index, 1);
+//     cargarProductosCarrito(carritoArray);
+    
+//     localStorage.setItem("carrito", JSON.stringify(carritoArray));
+// }
 
 // CARGAR PRODUCTOS DEL CARRITO
 const cargarProductosCarrito = (carritoArrayProductos) => {
