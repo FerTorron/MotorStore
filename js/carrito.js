@@ -18,10 +18,10 @@ const listarProductosCarrito = (producto) => {
 // ELIMINAR PRODUCTO
 const eliminarProductoCarrito = () => {
 	const botonesEliminar = document.querySelectorAll(".eliminarProducto");
-	if (botonesEliminar !== null){
-		botonesEliminar.forEach (boton => {
+		botonesEliminar.forEach(boton => {
 			boton.addEventListener("click", (e) => {
-				let productoAeliminar = carritoArray.findIndex((producto) => producto.id === parseInt(e.target.id))
+				let productoAeliminar = carritoArray.findIndex((producto) => producto.id === e.target.id);
+				console.log(productoAeliminar)
 				carritoArray.splice(productoAeliminar, 1);
 				guardarCarrito();
 				actualizarTotal();
@@ -40,13 +40,8 @@ const eliminarProductoCarrito = () => {
 					},
 					onClick: function(){} // Callback after click
 					}).showToast();
-				
-				if (carritoArray.length === 1){
-					localStorage.removeItem("carrito");
-				}
 			})
 		})
-	}
 }
 
 // CARGAR PRODUCTOS DEL CARRITO

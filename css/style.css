@@ -575,10 +575,10 @@ nav ul li a span{
     color: #FFF;
 }
 .errorCarrito h3{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 .errorCarrito p{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* CHECKOUT */
@@ -976,9 +976,7 @@ footer{
         height: 150px;
         color: #FFF;
         text-align: center;
-    }
-    .errorCarrito h3{
-        font-size: 1.4rem;
+        padding: 20px;
     }
     .errorCarrito p{
         font-size: 1rem;
