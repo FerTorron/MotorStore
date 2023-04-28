@@ -31,7 +31,7 @@ const realizarPedido = () => {
     if ((email !== "") && (name.length > 3) && (apellido.length > 3) && (dni.length == 8) && (telefono.length == 10)){
         Swal.fire({
             title: 'Realizar compra',
-            text: `${inputNombre.value} vas a comprar ${carritoArray.length} productos.`,
+            text: `${inputNombre.value} vas a comprar ${carritoArray.reduce((acc, prodCant) => acc + prodCant.cantidad, 0)} productos.`,
             icon: 'success',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

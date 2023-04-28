@@ -6,9 +6,6 @@ const URL = '../js/json/productos.json';
 // MOSTRAR CANTIDAD EN EL CARRITO
 let carritoArray = recuperarCarrito() || [];
 const carritoNumber = document.querySelector("span.carritoNumber");
-// const actualizarCarrito = () => {
-// 	carritoNumber.textContent = carritoArray.length;
-// }
 const actualizarCarrito = () => {
 	carritoNumber.textContent = carritoArray.reduce((acc, prodCant) => acc + prodCant.cantidad, 0)
 }
@@ -68,7 +65,6 @@ const agregarCarrito = () => {
 			boton.addEventListener("click", (e) => {
 				let productoAgregado = productos.find((producto) => producto.id === parseInt(e.target.id));
 				if(carritoArray.some(producto => producto.id === parseInt(e.target.id))) {
-					// const index = carritoArray.findIndex(producto => producto.id === parseInt(e.target.id));
 					productoAgregado.cantidad++; 
 				}
 				else {
