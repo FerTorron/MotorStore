@@ -293,6 +293,14 @@ nav ul li a span{
     color: #D90C0C;
     background: transparent;
 }
+.catalogue__product button:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+}
+.catalogue__product button:disabled:hover{
+    background: #D90C0C;
+    color: #FFF;
+}
 
 .searchProduct{
     width: 50%;

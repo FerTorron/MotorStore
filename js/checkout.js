@@ -40,8 +40,7 @@ const realizarPedido = () => {
             }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("carrito");
-                window.location.reload()
-                actualizarTotal();
+                window.location.href = "../index.html";
             }
             })
     } else {

@@ -20,7 +20,7 @@ const retornarProducto = (producto) => {
 	return `<div class="catalogue__product">
 				<img src="${producto.img}" alt="${producto.name}">
 				<span>$ ${producto.price.toLocaleString()}</span>
-				<button id="${producto.id}" class="btnAgregarCarrito transition">Agregar al Carrito</button>
+				<button id="${producto.id}" ${producto.stock == 0 ? "disabled" : ""} class="btnAgregarCarrito transition">${producto.stock == 0 ? "Sin Stock": "Agregar al Carrito"}</button>
 			</div>`;
 };
 

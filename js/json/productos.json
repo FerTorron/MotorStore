@@ -27,7 +27,7 @@
         "id": 4,
         "name": "Casco LS2 Brilloso",
         "price": 89900,
-        "stock": 19,
+        "stock": 0,
         "categoria": "casco",
         "img": "assets/img/products/casco2.webp"
     },
@@ -67,7 +67,7 @@
         "id": 9,
         "name": "Botas Blancas",
         "price": 28567,
-        "stock": 4,
+        "stock": 0,
         "categoria": "botas",
         "img": "assets/img/products/botas2.webp"
     },
@@ -91,7 +91,7 @@
         "id": 12,
         "name": "Campera Roja",
         "price": 68000,
-        "stock": 1,
+        "stock": 0,
         "categoria": "campera",
         "img": "assets/img/products/campera4.webp"
     },
