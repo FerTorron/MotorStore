@@ -9,8 +9,8 @@ window.addEventListener("resize", function(){
 })
 
 // MENU ADMIN
-document.getElementById("adminMenuBtn").addEventListener("click", mostrarMenuAdmin);
-document.getElementById("btnClose").addEventListener("click", mostrarMenuAdmin);
+document.getElementById("adminMenuBtn")?.addEventListener("click", mostrarMenuAdmin);
+document.getElementById("btnClose")?.addEventListener("click", mostrarMenuAdmin);
 function mostrarMenuAdmin(){
 	document.getElementById("adminMenu").classList.toggle('move-adminMenu');
 }

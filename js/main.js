@@ -6,8 +6,11 @@ const URL = '../js/json/productos.json';
 // MOSTRAR CANTIDAD EN EL CARRITO
 let carritoArray = recuperarCarrito() || [];
 const carritoNumber = document.querySelector("span.carritoNumber");
+// const actualizarCarrito = () => {
+// 	carritoNumber.textContent = carritoArray.length;
+// }
 const actualizarCarrito = () => {
-	carritoNumber.textContent = carritoArray.length;
+	carritoNumber.textContent = carritoArray.reduce((acc, prodCant) => acc + prodCant.cantidad, 0)
 }
 actualizarCarrito();
 
@@ -54,7 +57,7 @@ const agregarProducto = () => {
 		})
 	}
 }
-inputButton.addEventListener("click", agregarProducto);
+inputButton?.addEventListener("click", agregarProducto);
 
 
 // COMPRAR PRODUCTO
@@ -63,8 +66,15 @@ const agregarCarrito = () => {
 	if (botonesCart !== null) {
 		for (const boton of botonesCart) {
 			boton.addEventListener("click", (e) => {
-				let productoAgregado = productos.find((producto) => producto.id === parseInt(e.target.id))
-				carritoArray.push(productoAgregado);
+				let productoAgregado = productos.find((producto) => producto.id === parseInt(e.target.id));
+				if(carritoArray.some(producto => producto.id === parseInt(e.target.id))) {
+					// const index = carritoArray.findIndex(producto => producto.id === parseInt(e.target.id));
+					productoAgregado.cantidad++; 
+				}
+				else {
+					productoAgregado.cantidad = 1;
+					carritoArray.push(productoAgregado);
+				}
 				actualizarCarrito();
 				guardarCarrito();
 
@@ -107,7 +117,7 @@ const filtrarProductos = () => {
 	let productoBuscar = productos.filter((producto) => producto.name.toLowerCase().includes(inputSearch.value.toLowerCase().trim()));
 	productoBuscar !== [] && cargarProducto(productoBuscar)
 }
-inputSearch.addEventListener("search", filtrarProductos)
+inputSearch?.addEventListener("search", filtrarProductos)
 
 // BUSCAR PRODUCTO POR CATEGORIA
 const botonesCategorias = document.querySelectorAll(".filtro");
@@ -132,11 +142,13 @@ tippy('#myButton', {
 
 // SI EXISTE UN STORAGE DE LOS PRODUCTOS, CARGA ESE STORAGE
 // SI FUE RESTABLECIDO DE FABRICA (ELIMINADO), CARGA EL JSON
-if (productos.length === 0) {
-	fetch(URL)
-		.then((respuesta) => respuesta.json())
-		.then((data) => productos.push(...data))
-		.then(() => cargarProducto(productos))
-} else {
-	cargarProducto(productos)
+if (window.location.pathname == "/index.html"){
+	if (productos.length === 0) {
+		fetch(URL)
+			.then((respuesta) => respuesta.json())
+			.then((data) => productos.push(...data))
+			.then(() => cargarProducto(productos))
+	} else {
+		cargarProducto(productos)
+	}
 }

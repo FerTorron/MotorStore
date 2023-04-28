@@ -14,7 +14,7 @@ const restablecerProductos = () => {
 	localStorage.removeItem("productos");
 	window.location.reload();
 }
-document.querySelector(".btnRestablecer").addEventListener("click", restablecerProductos);
+document.querySelector(".btnRestablecer")?.addEventListener("click", restablecerProductos);
 
 
 

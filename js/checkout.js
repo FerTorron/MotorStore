@@ -3,7 +3,8 @@ const productosCheckout = document.querySelector("div.resumenCompra");
 const listarProductosCheckout = (producto) => {
 	return `<div class="productoResumen">
                 <img src="../${producto.img}" alt="${producto.img}">
-                <p>$${producto.price.toLocaleString()}</p>
+                <p>${producto.cantidad}</p>
+                <p>$${((producto.price) * producto.cantidad).toLocaleString()}</p>
             </div>`;
 };
 
