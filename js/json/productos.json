@@ -99,7 +99,7 @@
         "id": 13,
         "name": "Mochila",
         "price": 42000,
-        "stock": 24,
+        "stock": 0,
         "categoria": "accesorios",
         "img": "assets/img/products/mochila.webp"
     },

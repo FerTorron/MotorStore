@@ -13,4 +13,5 @@ document.getElementById("adminMenuBtn")?.addEventListener("click", mostrarMenuAd
 document.getElementById("btnClose")?.addEventListener("click", mostrarMenuAdmin);
 function mostrarMenuAdmin(){
 	document.getElementById("adminMenu").classList.toggle('move-adminMenu');
+	document.getElementById("newProduct").classList.toggle('move-newProduct');
 }
