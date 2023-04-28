@@ -18,7 +18,6 @@ document.querySelector(".btnRestablecer")?.addEventListener("click", restablecer
 
 
 
-
 // GUARDAR CARRITO EN STORAGE
 function guardarCarrito(){
 	carritoArray.length > 0 ? localStorage.setItem("carrito", JSON.stringify(carritoArray)) : 0;
