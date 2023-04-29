@@ -83,11 +83,7 @@ if (window.location.pathname == "/pages/carrito.html"){
 // TOTAL PRODUCTO CARRITO
 const totalCarrito = document.querySelector("#total");
 const actualizarTotal = () => {
-	let total = 0;
-	for (producto of carritoArray){
-		total += (producto.price) * producto.cantidad;
-	}
-	totalCarrito.textContent = `$${total.toLocaleString()}`
+	totalCarrito.textContent = `$${(carritoArray.reduce((acc, precioProd) => acc + (precioProd.price * precioProd.cantidad), 0)).toLocaleString()}`
 }
 setTimeout(() => {
 	actualizarTotal();
