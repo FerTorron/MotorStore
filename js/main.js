@@ -100,8 +100,8 @@ const cargarProducto = (productosArray) => {
 		agregarCarrito();
 	} else {
 		containerProducts.innerHTML = `<div class="errorCarrito">
-											<h3>⛔ Sin Stock ⛔</h3>
-											<p>Disculpa, nos hemos quedado sin Stock</p>
+											<h3>⛔ Producto no Encontrado ⛔</h3>
+											<p>Disculpa, nos hemos podido encontrar el Producto</p>
 										</div>`;
 	}
 };
